@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>dd572eca-b638-4f0d-ba8b-7d5f61493919</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RE4_MDT_PARSE</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MakeMDT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoLang.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MultiLang.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ParseMDT.cs" />
+  </ItemGroup>
+</Project>

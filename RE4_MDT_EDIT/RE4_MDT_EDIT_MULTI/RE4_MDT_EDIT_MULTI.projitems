@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3a441716-a624-47fd-8d19-deea89c812fe</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RE4_MDT_EDIT_MULTI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)FileVersion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GetRepackedMulti.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeStractedMulti.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoLangParsed.cs" />
+  </ItemGroup>
+</Project>
