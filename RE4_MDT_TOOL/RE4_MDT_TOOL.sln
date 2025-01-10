@@ -61,6 +61,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_MDT_PARSE_MONO_BIG_TO_U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_MDT_SPLIT_UHD_MULTI6", "RE4_MDT_SPLIT_UHD_MULTI6\RE4_MDT_SPLIT_UHD_MULTI6.csproj", "{38F07D03-AC58-41EA-BBB0-68E8A86FD6EB}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RE4_MDT_CHOICE", "RE4_MDT_CHOICE\RE4_MDT_CHOICE.shproj", "{2F50EA9B-EC4D-43D3-AC3E-19108EE06EE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_MDT_CHOICE_BIG_MULTI", "RE4_MDT_CHOICE_BIG_MULTI\RE4_MDT_CHOICE_BIG_MULTI.csproj", "{F8BD6D87-EB9F-4DDE-B26C-B9DBFCE61664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_MDT_CHOICE_NS_MULTI", "RE4_MDT_CHOICE_NS_MULTI\RE4_MDT_CHOICE_NS_MULTI.csproj", "{BB3328FB-6C13-4AEB-B861-C2E28E548788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_MDT_CHOICE_PS4_MULTI", "RE4_MDT_CHOICE_PS4_MULTI\RE4_MDT_CHOICE_PS4_MULTI.csproj", "{52471112-DF3C-4A3F-8EE3-66635776C795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_MDT_CHOICE_UHD_MULTI", "RE4_MDT_CHOICE_UHD_MULTI\RE4_MDT_CHOICE_UHD_MULTI.csproj", "{11EC882B-032E-482D-97F4-4924C514B1DE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{0559698b-8fea-4697-9fd4-8886ed781c21}*SharedItemsImports = 4
@@ -74,6 +84,10 @@ Global
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{1094ff20-e447-4a3e-bb12-fd48b88d8eba}*SharedItemsImports = 4
 		RE4_MDT_SPLIT\RE4_MDT_SPLIT.projitems*{1094ff20-e447-4a3e-bb12-fd48b88d8eba}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{1094ff20-e447-4a3e-bb12-fd48b88d8eba}*SharedItemsImports = 4
+		RE4_MDT_CHOICE\RE4_MDT_CHOICE.projitems*{11ec882b-032e-482d-97f4-4924c514b1de}*SharedItemsImports = 4
+		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{11ec882b-032e-482d-97f4-4924c514b1de}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{11ec882b-032e-482d-97f4-4924c514b1de}*SharedItemsImports = 4
+		RE4_MDT_CHOICE\RE4_MDT_CHOICE.projitems*{2f50ea9b-ec4d-43d3-ac3e-19108ee06ee6}*SharedItemsImports = 13
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{33ec6cab-d651-4d46-a5e3-a3d67a769093}*SharedItemsImports = 4
 		RE4_MDT_SPLIT\RE4_MDT_SPLIT.projitems*{33ec6cab-d651-4d46-a5e3-a3d67a769093}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{33ec6cab-d651-4d46-a5e3-a3d67a769093}*SharedItemsImports = 4
@@ -85,6 +99,9 @@ Global
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{4bc29fa3-2a3c-44a0-984d-c666f528b420}*SharedItemsImports = 4
 		RE4_MDT_SINGLE_MULTI\RE4_MDT_SINGLE_MULTI.projitems*{4bc29fa3-2a3c-44a0-984d-c666f528b420}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{4bc29fa3-2a3c-44a0-984d-c666f528b420}*SharedItemsImports = 4
+		RE4_MDT_CHOICE\RE4_MDT_CHOICE.projitems*{52471112-df3c-4a3f-8ee3-66635776c795}*SharedItemsImports = 4
+		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{52471112-df3c-4a3f-8ee3-66635776c795}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{52471112-df3c-4a3f-8ee3-66635776c795}*SharedItemsImports = 4
 		RE4_MDT_SPLIT\RE4_MDT_SPLIT.projitems*{55028f84-e7ec-4d08-96ed-b1441e0d010e}*SharedItemsImports = 13
 		RE4_MDT_MERGE_MULTI\RE4_MDT_MERGE_MULTI.projitems*{575148b0-cff7-41a0-b83e-b5c96d51d107}*SharedItemsImports = 4
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{575148b0-cff7-41a0-b83e-b5c96d51d107}*SharedItemsImports = 4
@@ -108,6 +125,9 @@ Global
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{b0d2f399-f5c6-4231-bd78-753378e55840}*SharedItemsImports = 4
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{b3688af5-9717-4ae0-8c95-41cc6e923eb0}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{b3688af5-9717-4ae0-8c95-41cc6e923eb0}*SharedItemsImports = 4
+		RE4_MDT_CHOICE\RE4_MDT_CHOICE.projitems*{bb3328fb-6c13-4aeb-b861-c2e28e548788}*SharedItemsImports = 4
+		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{bb3328fb-6c13-4aeb-b861-c2e28e548788}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{bb3328fb-6c13-4aeb-b861-c2e28e548788}*SharedItemsImports = 4
 		RE4_MDT_MERGE_MULTI\RE4_MDT_MERGE_MULTI.projitems*{bea07c31-9225-4f25-b713-73b96669c8b6}*SharedItemsImports = 4
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{bea07c31-9225-4f25-b713-73b96669c8b6}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{bea07c31-9225-4f25-b713-73b96669c8b6}*SharedItemsImports = 4
@@ -128,6 +148,9 @@ Global
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{e8f8e6d1-2483-4044-8b74-7bb5038253d2}*SharedItemsImports = 4
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{ea099e71-2fd2-4ec5-aced-c707b7991f37}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{ea099e71-2fd2-4ec5-aced-c707b7991f37}*SharedItemsImports = 4
+		RE4_MDT_CHOICE\RE4_MDT_CHOICE.projitems*{f8bd6d87-eb9f-4dde-b26c-b9dbfce61664}*SharedItemsImports = 4
+		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{f8bd6d87-eb9f-4dde-b26c-b9dbfce61664}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{f8bd6d87-eb9f-4dde-b26c-b9dbfce61664}*SharedItemsImports = 4
 		RE4_MDT_PARSE\RE4_MDT_PARSE.projitems*{f9fc7322-5db3-4641-bbc0-1c228768ab19}*SharedItemsImports = 4
 		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{f9fc7322-5db3-4641-bbc0-1c228768ab19}*SharedItemsImports = 4
 	EndGlobalSection
@@ -232,6 +255,22 @@ Global
 		{38F07D03-AC58-41EA-BBB0-68E8A86FD6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38F07D03-AC58-41EA-BBB0-68E8A86FD6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38F07D03-AC58-41EA-BBB0-68E8A86FD6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8BD6D87-EB9F-4DDE-B26C-B9DBFCE61664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BD6D87-EB9F-4DDE-B26C-B9DBFCE61664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BD6D87-EB9F-4DDE-B26C-B9DBFCE61664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BD6D87-EB9F-4DDE-B26C-B9DBFCE61664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB3328FB-6C13-4AEB-B861-C2E28E548788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3328FB-6C13-4AEB-B861-C2E28E548788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3328FB-6C13-4AEB-B861-C2E28E548788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3328FB-6C13-4AEB-B861-C2E28E548788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52471112-DF3C-4A3F-8EE3-66635776C795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52471112-DF3C-4A3F-8EE3-66635776C795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52471112-DF3C-4A3F-8EE3-66635776C795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52471112-DF3C-4A3F-8EE3-66635776C795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11EC882B-032E-482D-97F4-4924C514B1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EC882B-032E-482D-97F4-4924C514B1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EC882B-032E-482D-97F4-4924C514B1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EC882B-032E-482D-97F4-4924C514B1DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

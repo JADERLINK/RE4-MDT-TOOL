@@ -17,7 +17,7 @@ namespace RE4_MDT_SINGLE_MULTI_PS4
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine("Version 1.0 (2025-01-01)");
+            Console.WriteLine("Version 1.1 (2025-01-10)");
             Console.WriteLine("");
 
             for (int i = 0; i < args.Length; i++)

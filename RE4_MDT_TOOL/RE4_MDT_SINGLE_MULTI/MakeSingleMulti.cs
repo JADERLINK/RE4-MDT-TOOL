@@ -17,11 +17,13 @@ namespace RE4_MDT_SINGLE_MULTI
             header[0] = 0x6;
             bw.Write(header);
 
+            bw.Write(is64bits ? new byte[0x10] : new byte[0x0C]); // 0_Japanese
+
             uint offsetToOffset = 4;
 
             bw.BaseStream.Position = offsetToOffset;
             bw.Write((uint)header.Length);
-            bw.Write(is64bits ? new byte[0x10] : new byte[0x0C]); // 0_Japanese
+            
             uint OffsetToSet = is64bits ? 0x40u : 0x30u;
             for (int i = 1; i <= 5; i++) // 1 até 5
             {
@@ -70,11 +72,13 @@ namespace RE4_MDT_SINGLE_MULTI
             EndianBitConverter.GetBytes((uint)0x6, endianness).CopyTo(header, 0);
             bw.Write(header);
 
+            bw.Write(new byte[0x14]); // 0_Japanese
+
             uint offsetToOffset = 4;
 
             bw.BaseStream.Position = offsetToOffset;
             bw.Write((uint)0x1C);
-            bw.Write(new byte[0x14]); // 0_Japanese
+        
             uint OffsetToSet = 0x30u;
             for (int i = 1; i <= 5; i++) // 1 até 5
             {
