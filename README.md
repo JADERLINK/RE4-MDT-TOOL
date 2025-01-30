@@ -1,10 +1,13 @@
 # RE4-MDT-TOOL
-Extract and repack RE4 MDT files [Edit the game texts] (RE4 2007/PS2/UHD/PS4/NS/GC/WII/X360)
+Extract and repack RE4 MDT files [Edit the game texts] (ALL RE4 OG VERSIONS)
+<br>(RE4 2007/PS2/UHD/PS4/NS/GC/WII/X360/PS3)
 
 **Translate from Portuguese Brazil**
 
 Programa destinado a extrair e reempacotar arquivos MDT;
 <br> O arquivo MDT é o arquivo que contém os textos do jogo;
+
+**Last Update: V.1.2**
 
 ## Info:
 
@@ -43,6 +46,7 @@ Para mais informações, veja os arquivos abaixo desse repositório:
 <br>[RE4_MDT_TOOL.md](https://github.com/JADERLINK/RE4-MDT-TOOL/blob/main/RE4_MDT_TOOL.md)
 <br>[RE4_MDT_EDIT.md](https://github.com/JADERLINK/RE4-MDT-TOOL/blob/main/RE4_MDT_EDIT.md)
 <br>[MdtEncoding.md](https://github.com/JADERLINK/RE4-MDT-TOOL/blob/main/MdtEncoding.md)
+<br>[ChangeLog.md](https://github.com/JADERLINK/RE4-MDT-TOOL/blob/main/ChangeLog.md)
 
 **At.te: JADERLINK**
-<br>2025-01-10
+<br>2025-01-30

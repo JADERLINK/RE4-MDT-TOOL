@@ -17,7 +17,7 @@ namespace RE4_MDT_EDIT
             char ConfigCmdStartChar = '\0';
             char ConfigCmdEndChar = '\0';
 
-            //CharsetLists:
+            // CharsetLists:
             Dictionary<ushort, string> CharsetList = new Dictionary<ushort, string>();
             Dictionary<ushort, string> ColorList = new Dictionary<ushort, string>();
             Dictionary<ushort, string> ExtraCharset = new Dictionary<ushort, string>();
@@ -25,6 +25,9 @@ namespace RE4_MDT_EDIT
             // Additional lists
             Dictionary<string, ushort> InvCharsetListCMD = new Dictionary<string, ushort>();
             Dictionary<char, ushort> InvCharsetListChars = new Dictionary<char, ushort>();
+            // Replace
+            List<(string inText, string outText)> Replace = new List<(string inText, string outText)>();
+            List<string> AllTextReplace = new List<string>();
 
             JObject oDoc;
             try
@@ -103,7 +106,7 @@ namespace RE4_MDT_EDIT
                     throw new MdtEncodingException($"The content of the \"{CmdCharName}\" tag cannot have more than one character.");
                 }
                 char toChar = CmdCharValue[0];
-                if (toChar < 32 || toChar == 127 || char.IsControl(toChar))
+                if (char.IsControl(toChar))
                 {
                     throw new MdtEncodingException($"[{CmdCharName}] The char content is an invalid character: {toChar}");
                 }
@@ -190,7 +193,7 @@ namespace RE4_MDT_EDIT
                         {
                             throw new MdtEncodingException($"[{exceptionName}] A character sequence cannot have the command terminator in the middle of the sequence: {Code:X4}={value}");
                         }
-                        else if (value[0] < 32 || value[0] == 127 || char.IsControl(value[0]))
+                        else if (char.IsControl(value[i]))
                         {
                             throw new MdtEncodingException($"[{exceptionName}] A character sequence has a char with an invalid character: {Code:X4}={value}");
                         }
@@ -221,7 +224,7 @@ namespace RE4_MDT_EDIT
                         throw new MdtEncodingException($"[{exceptionName}] The content of the char cannot have more than one character, unless it is a command character: {Code:X4}={value}");
                     }
                     value = value[0].ToString();
-                    if (value[0] < 32 || value[0] == 127 || char.IsControl(value[0]))
+                    if (char.IsControl(value[0]))
                     {
                         throw new MdtEncodingException($"[{exceptionName}] The char content is an invalid character: {Code:X4}={value}");
                     }
@@ -421,6 +424,65 @@ namespace RE4_MDT_EDIT
             }
 
 
+            if (oEncoding["Replace"] != null) //optional section
+            {
+                JToken oReplace = oEncoding["Replace"];
+                JEnumerable<JToken> ReplaceChildren;
+                try
+                {
+                    ReplaceChildren = oReplace.Children();
+                }
+                catch (Exception ex)
+                {
+                    throw new MdtJsonLoadException("The content of the tag \"Replace\" is invalid.", ex);
+                }
+
+                foreach (var item in ReplaceChildren)
+                {
+                    if (item is JProperty prop)
+                    {
+                        string inString = prop.Name;
+                        string outString = prop.Value.ToString();
+
+                        //Validation
+                        if (inString.Trim() != inString || outString.Trim() != outString)
+                        {
+                            throw new MdtEncodingException($"[Replace] The character sequence cannot begin and/or end with spaces: {inString}={outString}");
+                        }
+                        else if (inString.Trim().Length == 0 || outString.Trim().Length == 0)
+                        {
+                            throw new MdtEncodingException($"[Replace] The character sequence cannot be empty: {inString}={outString}");
+                        }
+                        else if (AllTextReplace.Contains(inString) || AllTextReplace.Contains(outString))
+                        {
+                            throw new MdtEncodingException($"[Replace] The character sequence cannot be repeated in the \"Replace\" list: {inString}={outString}");
+                        }
+                        for (int i = 0; i < inString.Length; i++)
+                        {
+                            if (char.IsControl(inString[i]))
+                            {
+                                throw new MdtEncodingException($"[Replace] A character sequence has a char with an invalid character: {inString}={outString}");
+                            }
+                        }
+                        for (int i = 0; i < outString.Length; i++)
+                        {
+                            if (char.IsControl(outString[i]))
+                            {
+                                throw new MdtEncodingException($"[Replace] A character sequence has a char with an invalid character: {inString}={outString}");
+                            }
+                        }
+
+                        AllTextReplace.Add(inString);
+                        AllTextReplace.Add(outString);
+                        Replace.Add((inString, outString));
+                    }
+                    else
+                    {
+                        throw new MdtJsonLoadException("The content inside the \"Replace\" tag is invalid: " + item.ToString());
+                    }
+                }
+            }
+
 
             encoding = new MdtEncoding();
             encoding.InfoTitle = InfoTitle ?? "";
@@ -434,6 +496,7 @@ namespace RE4_MDT_EDIT
             encoding.ExtraCharset = ExtraCharset;
             encoding.InvCharsetListCMD = InvCharsetListCMD;
             encoding.InvCharsetListChars = InvCharsetListChars;
+            encoding.Replace = Replace.ToArray();
 
             return encoding;
         }

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using SimpleEndianBinaryIO;
+using RE4_MDT_EDIT_SHARED;
 
 namespace RE4_MDT_EDIT_MONO
 {
     internal static class MainAction
     {
-        public const string Version = "Version 1.0 (2025-01-01)";
-
         public static void Continue(string[] args, bool is64Bits, Endianness endianness, bool isSplittedFiles) 
         {
             RE4_MDT_EDIT.MdtEncoding mdtEncoding = null;
@@ -76,29 +75,32 @@ namespace RE4_MDT_EDIT_MONO
 
             if (Extension == ".MDT")
             {
-                var diretory = Path.GetDirectoryName(fileInfo.FullName);
-                var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
+                var directory = Path.GetDirectoryName(fileInfo.FullName);
+                var baseName = Path.GetFileNameWithoutExtension(fileInfo.Name);
 
                 var stream = fileInfo.OpenRead();
                 var res = RE4_MDT_PARSE.ParseMDT.ParseMono(stream, 0, stream.Length, is64Bits, endianness); // all
                 stream.Close();
 
                 var lines = RE4_MDT_EDIT.Extract.Extract_All(res, mdtEncoding, isSplittedFiles);
-                MakeStracted.MakeFiles(res.Magic, lines, name, diretory, mdtEncoding.InfoTitle, isSplittedFiles);
+
+                var mono = new MonoLangParsed(res.Magic, lines, mdtEncoding.InfoTitle);
+                MakeExtracted.MakeMonoFiles(mono, baseName, directory, isSplittedFiles);
                 Console.WriteLine($"Extracted {lines.Length} entries.");
             }
             else if (Extension == ".IDXMDT")
             {
-                var magic = GetRepacked.GetMagic(fileInfo.FullName);
-                var lines = GetRepacked.GetLines(fileInfo.FullName, isSplittedFiles);
+                var directory = Path.GetDirectoryName(fileInfo.FullName);
+                var baseName = Path.GetFileNameWithoutExtension(fileInfo.Name);
+
+                var magic = GetRepacked.GetMagicFromIdxMdt(fileInfo);
+                var lines = GetRepacked.GetLines(baseName, directory, isSplittedFiles);
 
                 var encodedlines = RE4_MDT_EDIT.Repack.Encoder(lines, mdtEncoding);
 
                 var mono = new RE4_MDT_PARSE.MonoLang(magic, encodedlines.charArr, encodedlines.offsetList);
 
-                var diretory = Path.GetDirectoryName(fileInfo.FullName);
-                var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
-                var outputFile = Path.Combine(diretory, name + ".MDT");
+                var outputFile = Path.Combine(directory, baseName + ".MDT");
                 var outputFileInfo = new FileInfo(outputFile);
                 var outStream = outputFileInfo.OpenWrite();
                 RE4_MDT_PARSE.MakeMDT.MakeMono(mono, outStream, 0, is64Bits, out _, endianness); // all

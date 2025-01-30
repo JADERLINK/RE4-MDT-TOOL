@@ -12,12 +12,13 @@ namespace RE4_MDT_EDIT
         public char CmdStartChar { get; set; }
         public char CmdEndChar { get; set; }
         public Dictionary<ushort, string> ColorList { get; set; }
-        public Dictionary<ushort, string> CharsetList { get; set; }    
+        public Dictionary<ushort, string> CharsetList { get; set; }
         public Dictionary<ushort, string> ExtraCharset { get; set; }
         public Dictionary<string, ushort> AkaCharset { get; set; }
 
         public Dictionary<string, ushort> InvCharsetListCMD { get; set; }
         public Dictionary<char, ushort> InvCharsetListChars { get; set; }
 
+        public (string inText, string outText)[] Replace { get; set; }
     }
 }

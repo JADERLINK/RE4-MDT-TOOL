@@ -10,7 +10,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MainAction.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GetRepacked.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MakeStracted.cs" />
   </ItemGroup>
 </Project>

@@ -7,73 +7,8 @@ namespace RE4_MDT_EDIT_MULTI
 {
     internal class GetRepackedMulti
     {
-        public static string[] GetLines(string file, bool IsSplittedFiles)
+        public static uint[] GetMagicMulti(FileInfo fileInfo)
         {
-            string[] res;
-
-            FileInfo fileInfo = new FileInfo(file);
-            string BaseFileName = Path.GetFileName(fileInfo.Name);
-            string DirectoryName = fileInfo.DirectoryName;
-
-            if (IsSplittedFiles)
-            {
-                string EntryFolder = Path.Combine(DirectoryName, BaseFileName);
-
-                if (!Directory.Exists(EntryFolder))
-                {
-                    throw new ArgumentException($"The folder {BaseFileName} does not exist.");
-                }
-
-                uint iCount = 0; // quantidade de entry
-                bool asFile = true;
-
-                while (asFile)
-                {
-                    string txtpath = Path.Combine(EntryFolder, iCount.ToString("D4") + ".txtmdt");
-
-                    if (File.Exists(txtpath))
-                    {
-                        iCount++;
-                    }
-                    else
-                    {
-                        asFile = false;
-                    }
-                }
-
-                res = new string[iCount];
-
-                for (int i = 0; i < iCount; i++)
-                {
-                    string entryPath = Path.Combine(EntryFolder, i.ToString("D4") + ".txtmdt");
-
-                    if (File.Exists(entryPath))
-                    {
-                        res[i] = File.ReadAllText(entryPath, Encoding.UTF8);
-                    }
-                    else
-                    {
-                        res[i] = "";
-                    }
-                }
-
-            }
-            else
-            {
-                string entryPath = Path.Combine(DirectoryName, BaseFileName + ".txtmdt");
-                if (!File.Exists(entryPath))
-                {
-                    throw new ArgumentException("The file does not exist: " + BaseFileName + ".txtmdt");
-                }
-                res = File.ReadAllLines(entryPath, Encoding.UTF8);
-            }
-
-            return res;
-        }
-
-        public static uint[] GetMagic(string file)
-        {
-            FileInfo fileInfo = new FileInfo(file);
             StreamReader idx = fileInfo.OpenText();
             uint[] magic =  new uint[8];
 
@@ -97,7 +32,6 @@ namespace RE4_MDT_EDIT_MULTI
                     }
 
                 }
-
             }
 
             idx.Close();
@@ -124,7 +58,6 @@ namespace RE4_MDT_EDIT_MULTI
             }
         }
 
-
         private static string ReturnValidHexValue(string cont)
         {
             string res = "";
@@ -144,9 +77,6 @@ namespace RE4_MDT_EDIT_MULTI
             }
             return res;
         }
-
-
-
 
     }
 }

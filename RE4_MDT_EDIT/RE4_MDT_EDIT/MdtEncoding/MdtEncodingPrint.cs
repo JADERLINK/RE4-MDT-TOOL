@@ -70,6 +70,15 @@ namespace RE4_MDT_EDIT
                     Console.WriteLine($"{item.Key}={item.Value:X4}");
                 }
             }
+
+            if (mdtEncoding.Replace.Length != 0)
+            {
+                Console.WriteLine("Replace:");
+                foreach (var item in mdtEncoding.Replace)
+                {
+                    Console.WriteLine($"{item.inText}={item.outText}");
+                }
+            }
         }
 
     }

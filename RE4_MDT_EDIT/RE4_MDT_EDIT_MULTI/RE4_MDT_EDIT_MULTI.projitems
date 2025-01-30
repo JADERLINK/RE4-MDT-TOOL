@@ -9,10 +9,11 @@
     <Import_RootNamespace>RE4_MDT_EDIT_MULTI</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ExtractMulti.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GetRepackedMulti.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainAction.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MakeStractedMulti.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MonoLangParsed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeExtractedMulti.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepackMulti.cs" />
   </ItemGroup>
 </Project>

@@ -17,7 +17,7 @@ namespace RE4_MDT_PARSE_MONO_UHD_TO_BIG
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine("Version 1.0 (2025-01-01)");
+            Console.WriteLine("Version 1.2 (2025-01-29)");
             Console.WriteLine("");
 
             for (int i = 0; i < args.Length; i++)
@@ -51,9 +51,9 @@ namespace RE4_MDT_PARSE_MONO_UHD_TO_BIG
                 throw new ArgumentException("Invalid file!");
             }
 
-            var diretory = Path.GetDirectoryName(fileInfo.FullName);
-            var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
-            var outputFile = Path.Combine(diretory, name + ".parsed.MDT");
+            var directory = Path.GetDirectoryName(fileInfo.FullName);
+            var baseName = Path.GetFileNameWithoutExtension(fileInfo.Name);
+            var outputFile = Path.Combine(directory, baseName + ".parsed.MDT");
 
             var stream = fileInfo.OpenRead();
             var res = RE4_MDT_PARSE.ParseMDT.ParseMono(stream, 0, stream.Length, false); // UHD

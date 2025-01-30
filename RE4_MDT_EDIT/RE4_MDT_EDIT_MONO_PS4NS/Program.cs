@@ -17,7 +17,7 @@ namespace RE4_MDT_EDIT_MONO_PS4NS
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine(RE4_MDT_EDIT_MONO.MainAction.Version);
+            Console.WriteLine(RE4_MDT_EDIT_SHARED.ProgVersion.Version);
             Console.WriteLine("");
 
             RE4_MDT_EDIT_MONO.MainAction.Continue(args, true, SimpleEndianBinaryIO.Endianness.LittleEndian, false);

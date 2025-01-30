@@ -17,7 +17,7 @@ namespace RE4_MDT_SINGLE_MULTI_NS
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine("Version 1.1 (2025-01-10)");
+            Console.WriteLine("Version 1.2 (2025-01-29)");
             Console.WriteLine("");
 
             for (int i = 0; i < args.Length; i++)
@@ -51,9 +51,9 @@ namespace RE4_MDT_SINGLE_MULTI_NS
                 throw new ArgumentException("Invalid file!");
             }
 
-            var diretory = Path.GetDirectoryName(fileInfo.FullName);
-            var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
-            var outputFile = Path.Combine(diretory, name + ".single.MDT");
+            var directory = Path.GetDirectoryName(fileInfo.FullName);
+            var baseName = Path.GetFileNameWithoutExtension(fileInfo.Name);
+            var outputFile = Path.Combine(directory, baseName + ".single.MDT");
 
             var stream = fileInfo.OpenRead();
             var res = RE4_MDT_PARSE.ParseMDT.ParseMono(stream, 0, stream.Length, true); // NS

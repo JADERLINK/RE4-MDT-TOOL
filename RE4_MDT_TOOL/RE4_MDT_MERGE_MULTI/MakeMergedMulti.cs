@@ -22,18 +22,18 @@ namespace RE4_MDT_MERGE_MULTI
             langNames[7] = "9_Chinese_zh_cn";
 
             var fileInfo = new FileInfo(entryFileName.ToLowerInvariant());
-            var diretory = Path.GetDirectoryName(fileInfo.FullName);
-            var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
+            var directory = Path.GetDirectoryName(fileInfo.FullName);
+            var baseName = Path.GetFileNameWithoutExtension(fileInfo.Name);
             for (int i = 0; i < langNames.Length; i++)
             {
-                name = name.Replace("." + langNames[i].ToLowerInvariant(), "");
+                baseName = baseName.Replace("." + langNames[i].ToLowerInvariant(), "");
             }
-            var outputFullName = Path.Combine(diretory, name + ".merged.MDT");
+            var outputFullName = Path.Combine(directory, baseName + ".merged.MDT");
 
             string[] langFiles = new string[8];
             for (int i = 0; i < langFiles.Length; i++)
             {
-                langFiles[i] = Path.Combine(diretory, name + "." + langNames[i] + ".MDT");
+                langFiles[i] = Path.Combine(directory, baseName + "." + langNames[i] + ".MDT");
             }
 
             MonoLang[] langs = new MonoLang[8];

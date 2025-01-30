@@ -17,7 +17,7 @@ namespace RE4_MDT_EDIT_MULTI_BIG
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine(RE4_MDT_EDIT_MULTI.MainAction.Version);
+            Console.WriteLine(RE4_MDT_EDIT_SHARED.ProgVersion.Version);
             Console.WriteLine("");
 
             RE4_MDT_EDIT_MULTI.MainAction.Continue(args, RE4_MDT_EDIT_MULTI.FileVersion.MULTI_BIG, false);

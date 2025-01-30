@@ -26,11 +26,21 @@ namespace RE4_MDT_EDIT
         private static ushort[] EncoderLine(string line, MdtEncoding mdtEncoding, int entryID)
         {
             List<ushort> CharArr = new List<ushort>();
+            StringBuilder sbLine = new StringBuilder(line, 1024);
+
+            // Pré processamento Replace
+            if (mdtEncoding.Replace.Length != 0)
+            {
+                for (int r = mdtEncoding.Replace.Length -1; r >= 0; r--)
+                {
+                    sbLine.Replace(mdtEncoding.Replace[r].outText, mdtEncoding.Replace[r].inText);
+                }
+            }
 
             bool InCmd = false;
             StringBuilder cmd = new StringBuilder(1024);
 
-            foreach (var ichar in line)
+            foreach (var ichar in sbLine.ToString())
             {
                 if (ichar == 0x09 || ichar == 0x0D || ichar == 0x0A) // tab and newline
                 {

@@ -53,9 +53,14 @@ E para a tool:
 <br>**=> RE4_MDT_EDIT_SPLIT_ENTRIES_MULTI_**
 <br> Faz o mesmo que a tool " RE4_MDT_EDIT_SPLIT_ENTRIES_MONO_" porém para os arquivos MULTI. Então, no lugar dos arquivos idxmdt, vai ter pasta com as entries enumeradas dentro.
 
+**=> RE4_MDT_EDIT_CHOICE_**
+<br> Essa tool é a versão evoluída da tool RE4_MDT_EDIT_MULTI que, ao extrair, vai gerar um arquivo idxchoicemdt (que será usado para o repack).
+<br> A lógica é a mesma do RE4_MDT_CHOICE, porém, em vez de extrair mdt, vai ser criado idxmdt e txtmdt no lugar.
+<br>Nota: essa tool depende do arquivo "ChoiceEncoding.json" para definir quais arquivos "MdtEncoding*.json" vão ser usados.
+
 ## Atenção:
 Agora, o que vou explicar abaixo vale para todas as tools citadas acima:
-<br>Todo o conteúdo usado para codificar e decodificar o texto fica no arquivo "MdtEncoding.json", que pode ser editado.
+<br>Todo o conteúdo usado para codificar e decodificar o texto fica no arquivo "MdtEncoding*.json", que pode ser editado.
 <br>Permitindo assim, que qualquer valor vire o caractere que você quiser.
 <br>Aqui separei em dois conceitos:
 <br>* Os valores de caracteres individuais, que possuem um único char.

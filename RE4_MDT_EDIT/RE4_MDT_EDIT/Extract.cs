@@ -157,6 +157,15 @@ namespace RE4_MDT_EDIT
                     InsertHexValue(sb, mdtEncoding, 0x01);
                 }
 
+                // etapa 3 pós processamento Replace
+                if (mdtEncoding.Replace.Length != 0)
+                {
+                    for (int r = 0; r < mdtEncoding.Replace.Length; r++)
+                    {
+                        sb.Replace(mdtEncoding.Replace[r].inText, mdtEncoding.Replace[r].outText);
+                    }
+                }
+
                 res[i] = sb.ToString();
             }
 

@@ -9,7 +9,7 @@
     <Import_RootNamespace>RE4_MDT_CHOICE</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Choice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extract.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repack.cs" />
   </ItemGroup>

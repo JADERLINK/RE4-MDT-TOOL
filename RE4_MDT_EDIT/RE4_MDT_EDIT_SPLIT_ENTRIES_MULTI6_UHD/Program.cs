@@ -17,7 +17,7 @@ namespace RE4_MDT_EDIT_SPLIT_ENTRIES_MULTI6_UHD
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine(RE4_MDT_EDIT_MULTI.MainAction.Version);
+            Console.WriteLine(RE4_MDT_EDIT_SHARED.ProgVersion.Version);
             Console.WriteLine("");
 
             RE4_MDT_EDIT_MULTI.MainAction.Continue(args, RE4_MDT_EDIT_MULTI.FileVersion.MULTI6_UHD, true);
